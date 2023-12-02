@@ -9,3 +9,8 @@
 #     - Printing a Linked List
 
 
+class Node:
+    def __init__(self, value, next):
+        self.data = value
+        self.next = next
+        self.length = 0
