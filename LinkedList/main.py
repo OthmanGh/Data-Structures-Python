@@ -13,10 +13,23 @@ class Node:
     def __init__(self, value, next):
         self.data = value
         self.next = next
-        
+
 
 class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
         self.length = 0
+
+
+    def push_front(self,value):
+        n = Node(value, None)
+
+        if self.head == None: # list is empty 
+            self.head = self.tail = n
+            self.length = 1
+
+        else:
+            n.next = self.head
+            self.head = n
+            self.length  +=1
