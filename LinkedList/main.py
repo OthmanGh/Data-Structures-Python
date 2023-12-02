@@ -33,7 +33,19 @@ class LinkedList:
             n.next = self.head
             self.head = n
             self.length  +=1
+    
 
+    def push_back(self, value):
+        n = Node(value, None)
+
+        if self.head == None:
+            self.head = self.tail = n
+            self.length = 1
+
+        else:
+            self.tail.next = n
+            self.tail = n
+            self.length =1
 
     def printList(self):
         if self.head == None:
@@ -50,10 +62,11 @@ class LinkedList:
 myList = LinkedList()
 
 
+myList.push_back(40)
 myList.push_front(10)
-myList.push_front(20)
 myList.push_front(30)
-myList.push_front(40)
-myList.push_front(50)
-myList.push_front(60)
+myList.push_back(50)
+myList.push_front(20)
+myList.push_back(60)
+
 myList.printList()
