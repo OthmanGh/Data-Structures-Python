@@ -125,6 +125,22 @@ class LinkedList:
             self.length -= 1
 
 
+    def reverse(self):
+        c = self.head
+        prev = None
+
+        while(c != None):
+            next = c.next
+            c.next = prev
+
+            # update : 
+            prev = c
+            c = next
+
+        self.head = prev
+        
+
+
     # * Printing Linked List Func : 
 
     def printLL(self):
@@ -141,14 +157,22 @@ class LinkedList:
             print("Length of list : ", self.length)
 
 myList = LinkedList()
-myList.push_front(12)
-myList.push_back(11)
-myList.insert(1, 56)
-myList.insert(2, 76)
-myList.printLL()
+# myList.push_front(12)
+# myList.insert(1, 56)
+# myList.insert(2, 76)
+# myList.printLL()
 
-#myList.pop(0)
-myList.pop(3) # node containing 11 deleted
+# #myList.pop(0)
+# myList.pop(3) # node containing 11 deleted
+
+myList.push_back(10)
+myList.push_back(20)
+myList.push_back(30)
+myList.push_back(40)
+
+
+
+myList.reverse()
 myList.printLL()
 
 # myList.push_front(30)
