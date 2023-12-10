@@ -20,6 +20,20 @@ class Stack:
             return self.list[-1]
         else:
             raise IndexError("top from an empty stack")
+        
+
+    def insert_at_bottom(self, value):
+        # base case 
+        if self.empty():
+            self.push(value)
+            return
+
+        # recursive case :
+        temp = self.top()
+        self.pop()
+        self.insert_at_bottom(value)
+        self.push(temp)
+  
 
 # Create a stack object
 s = Stack()
@@ -30,7 +44,7 @@ s.push(20)
 s.push(30)
 s.push(40)
 s.push(50)
-
+s.insert_at_bottom(60)
 
 # Print the element at the top of the stack
 #print(s.top())
