@@ -1,5 +1,4 @@
 # Implementing Stack data structure using lists
-
 class Stack:
     def __init__(self): # Constructor to initialize an empty list as the stack
         self.list = []
@@ -11,8 +10,7 @@ class Stack:
         if not self.empty(): # Check if the stack is not empty
             self.list.pop()
         else:
-            print("Stack is empty...")
-            return None
+            raise IndexError("pop from an empty stack")
 
     def empty(self): # Method to check if the stack is empty
         return len(self.list) == 0
@@ -21,26 +19,25 @@ class Stack:
         if not self.empty(): # Check if the stack is not empty
             return self.list[-1]
         else:
-            print("Stack is empty...")
-            return -1
-        
+            raise IndexError("top from an empty stack")
+
 # Create a stack object
 s = Stack()
 
 # Push some elements onto the stack
 s.push(10)
-s.push(5)
-s.push(2)
-s.push(0)
+s.push(20)
+s.push(30)
+s.push(40)
+s.push(50)
+
 
 # Print the element at the top of the stack
-print(s.top())
+#print(s.top())
 
 # Pop and print all elements from the stack
+print("Stack : ")
 while not s.empty():
-    print(s.top(), end=" -> ")
+    print(s.top())
     s.pop()
-
-# The stack is now empty, attempting to get the top element will print a message
-print() 
-print(s.top()) # Stack is empty...
+print()
