@@ -35,6 +35,15 @@ class Stack:
         self.push(temp)
   
 
+    def reverse(self):
+        if self.empty():
+            return
+        
+        top = self.top()
+        self.pop()
+        self.reverse()
+        self.insert_at_bottom(top)
+
 # Create a stack object
 s = Stack()
 
@@ -45,6 +54,7 @@ s.push(30)
 s.push(40)
 s.push(50)
 s.insert_at_bottom(60)
+s.reverse()
 
 # Print the element at the top of the stack
 #print(s.top())
