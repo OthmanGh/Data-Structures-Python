@@ -11,7 +11,6 @@
 # Return the simplified canonical path.
 
 # Example 1:
-
 # Input: path = "/home/"
 # Output: "/home"
 # Explanation: Note that there is no trailing slash after the last directory name.
@@ -31,3 +30,31 @@
 # 1 <= path.length <= 3000
 # path consists of English letters, digits, period '.', slash '/' or '_'.
 # path is a valid absolute Unix path.
+
+class Solution(object):
+    def simplifyPath(self, path):
+        stack = []
+        for directory in path.split("/"):
+            if directory == "":
+                pass
+
+            elif directory == ".":
+                pass
+
+            elif directory == "..":
+                if stack:
+                    stack.pop()
+                else:
+                    pass
+
+            else:
+                stack.append(directory)
+
+        return "/" + "/".join(stack)
+
+
+strPath = Solution()
+
+print(strPath.simplifyPath("/home/"))
+print(strPath.simplifyPath("/../"))
+print(strPath.simplifyPath("/home//foo/"))
