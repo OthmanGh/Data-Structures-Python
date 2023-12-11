@@ -35,35 +35,20 @@
 # Methods pop, top and getMin operations will always be called on non-empty stacks.
 # At most 3 * 104 calls will be made to push, pop, top, and getMin.
 
-class MinStack(object):
 
-    def __init__(self):
-        
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(val)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
 
-    def push(self, val):
-        """
-        :type val: int
-        :rtype: None
-        """
-        
-
-    def pop(self):
-        """
-        :rtype: None
-        """
-        
-
-    def top(self):
-        """
-        :rtype: int
-        """
-        
-
-    def getMin(self):
-        """
-        :rtype: int
-        """
-        
+# Your MinStack object will be instantiated and called as such:
+# obj = MinStack()
+# obj.push(val)
+# obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.getMin()
 
 
 # Your MinStack object will be instantiated and called as such:
@@ -72,3 +57,66 @@ class MinStack(object):
 # obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.getMin()
+
+class MinStack(object):
+
+    def __init__(self):
+        self.stack = []
+        self.min_stack = []
+
+    def push(self, val):
+        self.stack.append(val)
+
+        if self.min_stack:
+            self.min_stack.append(min(val, self.min_stack[-1]))
+        else:
+            self.min_stack.append(val)
+
+        return None
+    
+    def pop(self):
+        if self.stack:
+            self.stack.pop()
+            self.min_stack.pop()
+
+        else:
+            pass
+        
+
+    def top(self):
+        if self.stack:
+            return self.stack[-1]
+        else:
+            return -1
+        
+
+    def getMin(self):
+        if self.min_stack:
+            return self.min_stack[-1]
+        else:
+            return -1
+        
+
+# Test Case 1
+min_stack_1 = MinStack()
+min_stack_1.push(5)
+min_stack_1.push(2)
+min_stack_1.push(7)
+print("Top:", min_stack_1.top())  # Output should be 7
+print("Min:", min_stack_1.getMin())  # Output should be 2
+min_stack_1.pop()
+print("Top:", min_stack_1.top())  # Output should be 2
+print("Min:", min_stack_1.getMin())  # Output should be 2
+
+# Test Case 2
+min_stack_2 = MinStack()
+min_stack_2.push(3)
+min_stack_2.push(1)
+min_stack_2.push(4)
+min_stack_2.push(2)
+print("Top:", min_stack_2.top())  # Output should be 2
+print("Min:", min_stack_2.getMin())  # Output should be 1
+min_stack_2.pop()
+min_stack_2.pop()
+print("Top:", min_stack_2.top())  # Output should be 1
+print("Min:", min_stack_2.getMin())  # Output should be 1
