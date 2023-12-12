@@ -6,3 +6,12 @@ class Node:
         self.value = value
         self.right = right
         self.left = left
+
+class BST:
+    def __init__(self):
+        self.root = None
+
+
+my_tree = BST()
+
+print(my_tree.root)
