@@ -78,4 +78,9 @@ class BST:
         
 
 
-    
+    def inOrder(self, current):
+        if current == None:
+            return 
+        self.inOrder(current.left)
+        print(current.value, end=" ")
+        self.inOrder(current.right)
