@@ -61,20 +61,18 @@ class BST:
             return False
 
 
-    def recursive_search(self, info):
-        if self.root == None:
+    def recursive_search(self, info, current):
+        if current == None:
             return False
         
-        current = self.root
-
         if current.value == info:
             return True
         
         elif current.value > info:
-            return self.recursive_search(self, current.left)
+            return self.recursive_search(info, current.left)
         
         else:
-            return self.recursive_search(self, current.right)
+            return self.recursive_search(info, current.right)
         
 
 
@@ -115,7 +113,7 @@ print(f"Is {search_value} in the BST? {bst.search(search_value)}")
 
 # Test recursive search
 search_value = 30
-print(f"Is {search_value} in the BST (recursive)? {bst.recursive_search(search_value)}")
+print(f"Is {search_value} in the BST (recursive)? {bst.recursive_search(search_value, bst.root)}")
 
 search_value = 75
-print(f"Is {search_value} in the BST (recursive)? {bst.recursive_search(search_value)}")
+print(f"Is {search_value} in the BST (recursive)? {bst.recursive_search(search_value, bst.root)}")
