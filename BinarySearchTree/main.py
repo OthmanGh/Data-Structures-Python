@@ -2,7 +2,7 @@
 
 class Node:
     def __init__(self, value, parent = None, left = None, right = None):
-        self.data = value
+        self.value = value
         self.parent = parent
         self.left = left
         self.right = right
@@ -75,3 +75,7 @@ class BST:
         
         else:
             return self.recursive_search(self, current.right)
+        
+
+
+    
