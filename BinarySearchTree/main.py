@@ -59,5 +59,19 @@ class BST:
                     current = current.right
             
             return False
+
+
+    def recursive_search(self, info):
+        if self.root == None:
+            return False
         
+        current = self.root
+
+        if current.value == info:
+            return True
         
+        elif current.value > info:
+            return self.recursive_search(self, current.left)
+        
+        else:
+            return self.recursive_search(self, current.right)
