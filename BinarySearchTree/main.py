@@ -22,6 +22,7 @@ class BST:
             current = self.root
             self.add_helper(n, current)
 
+
     def add_helper(self, n, current):
         if current.value > n.value:
             if current.left == None:
@@ -40,3 +41,23 @@ class BST:
             else:
                 return self.add_helper(n, current.right)
             
+
+    def search(self, info):
+        if self.root == None:
+            return False
+        
+        else:
+            current = self.root
+
+            while current != None:
+
+                if current.value == info:
+                    return True
+                elif current.value > info:
+                    current = current.left
+                else:
+                    current = current.right
+            
+            return False
+        
+        
