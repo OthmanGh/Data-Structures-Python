@@ -84,3 +84,38 @@ class BST:
         self.inOrder(current.left)
         print(current.value, end=" ")
         self.inOrder(current.right)
+
+    
+
+
+
+# Create an instance of the BST
+bst = BST()
+
+# Add values to the BST
+bst.add(50)
+bst.add(30)
+bst.add(70)
+bst.add(20)
+bst.add(40)
+bst.add(60)
+bst.add(80)
+
+# Print the tree using in-order traversal
+print("In-order traversal:")
+bst.inOrder(bst.root)
+print()
+
+# Test searching for values
+search_value = 40
+print(f"Is {search_value} in the BST? {bst.search(search_value)}")
+
+search_value = 55
+print(f"Is {search_value} in the BST? {bst.search(search_value)}")
+
+# Test recursive search
+search_value = 30
+print(f"Is {search_value} in the BST (recursive)? {bst.recursive_search(search_value)}")
+
+search_value = 75
+print(f"Is {search_value} in the BST (recursive)? {bst.recursive_search(search_value)}")
