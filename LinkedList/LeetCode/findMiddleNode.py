@@ -46,21 +46,10 @@ class LinkedList:
         # method should only traverse the linked list once
         slow = self.head
         fast = self.head
-        cnt = 0
 
-        while(fast.next != None):
-            if fast.next.next:
+        while not fast == None and not fast.next == None:
                 fast = fast.next.next
-            else:
-                fast = fast.next
-
-            slow = slow.next
-            cnt += 1
-
-        num_of_nodes = 2*cnt - 1
-
-        if num_of_nodes % 2 == 0:
-            return slow.next
+                slow = slow.next
         
         return slow
   
