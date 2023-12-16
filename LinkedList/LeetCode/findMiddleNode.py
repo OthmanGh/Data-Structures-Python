@@ -39,15 +39,41 @@ class LinkedList:
             self.tail = new_node
         return True
         
-        
+    def find_middle_node(self):
+        # if number of nodes is even --> return node after middle 
+        # if number of nodes is odd --> return middle node
+        # use two pointer approach
+        # method should only traverse the linked list once
+        slow = self.head
+        fast = self.head
+        cnt = 0
 
+        while(fast.next != None):
+            if fast.next.next:
+                fast = fast.next.next
+            else:
+                fast = fast.next
+
+            slow = slow.next
+            cnt += 1
+
+        num_of_nodes = 2*cnt - 1
+
+        if num_of_nodes % 2 == 0:
+            return slow.next
+        
+        return slow
+  
 my_linked_list = LinkedList(1)
 my_linked_list.append(2)
 my_linked_list.append(3)
 my_linked_list.append(4)
 my_linked_list.append(5)
+my_linked_list.append(6)
+my_linked_list.append(7)
+my_linked_list.append(8)
 
-print( my_linked_list.find_middle_node().value )
+print(my_linked_list.find_middle_node().value)
 
 """
     EXPECTED OUTPUT:
