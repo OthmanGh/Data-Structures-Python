@@ -51,15 +51,22 @@ class LinkedList:
         return True
     
         
-#### WRITE FIND_KTH_FROM_END FUNCTION HERE ####
-#                                             #
-#    This is a separate function that is      #
-#    not a method within the                  #
-#    LinkedList class.                        #
-#    INDENT ALL THE WAY TO THE LEFT.          #
-#                                             #
-###############################################
-
+def find_kth_from_end(ll, k):
+        fast = ll.head    
+        
+        for _ in range(1, k + 1):
+            if fast:
+                fast = fast.next
+            else:
+                return None
+                
+        slow = ll.head    
+        
+        while fast:
+            fast = fast.next
+            slow = slow.next
+            
+        return slow
 
 
 
