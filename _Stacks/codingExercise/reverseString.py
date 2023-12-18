@@ -43,8 +43,22 @@ class Stack:
 #  Indent all the way to the left.      #
 #                                       #
 #########################################
+def reverse_string(string):
+    stack = Stack()
 
-my_string = 'hello'
+    for char in string:
+        stack.push(char)
+
+    reversed_string = ""
+
+    while not stack.is_empty():
+        reversed_string += stack.pop()
+
+    return reversed_string
+
+
+
+my_string = 'hello World!'
 
 print (reverse_string(my_string))
 
