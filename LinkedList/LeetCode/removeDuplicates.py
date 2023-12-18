@@ -76,10 +76,22 @@ class LinkedList:
     #   | - The 'current' node iterates through the list.   |
     #   | - The 'values' set holds unique items seen so far.|
     #   +===================================================+
-
             
-            
+    def remove_duplicates(self):
+        prev = self.head
 
+        while prev:
+            current = prev.next
+            prev_current = prev
+            while current:
+                if current.value == prev.value:
+                    prev_current.next = current.next
+
+                current = current.next
+                prev_current = prev_current.next
+            prev = prev.next
+
+        return self.head
 
 #  +=====================================================+
 #  |                                                     |
