@@ -111,38 +111,34 @@ class LinkedList:
 #   | - The head of the resulting list becomes          |
 #   |   `dummy1.next`.                                  |
 #   +===================================================+
-        
-    def partition_list(self, x):
+
+    def partition_list(self, x):    
         if self.head == None:
             return None
-        
+            
         right_list = Node(0)
         left_list = Node(0)
-        
+            
         prev1 = left_list
         prev2 = right_list
         current = self.head
-        
+            
         while current != None:
             if current.value < x:
                 prev1.next = current
                 prev1 = current
-                
+                    
             else:
                 prev2.next = current
                 prev2 = current
                 
-            
             current = current.next 
-        
-        prev1.next = None
-        prev2.next = None
-        
+            
         prev1 = right_list.next
         self.head = left_list.next
-        
-        
+            
         return self.head
+
 
 #  +=====================================================+
 #  |                                                     |
@@ -300,9 +296,6 @@ def test_partition_list():
 # Run the test function
 test_partition_list()
       
-
-
-
 
 
 
